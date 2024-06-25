@@ -9,9 +9,28 @@ on:
       - main
 
 jobs:
-  security:
+  analyze:
+    name: Analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
-
+    permissions:
+        # required for all workflows
+        security-events: write
+  
+        # required to fetch internal or private CodeQL packs
+        packages: read
+  
+        # only required for workflows in private repositories
+        actions: read
+        contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - language: csharp
+          build-mode: autobuild
+        - language: javascript-typescript
+          build-mode: none
+          
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -19,6 +38,7 @@ jobs:
       # Step to unzip the code archive
       - name: Unzip code
         run: unzip code.zip -d extracted_code
+        
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
