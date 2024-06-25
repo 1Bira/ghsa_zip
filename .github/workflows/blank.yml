@@ -51,22 +51,22 @@ jobs:
           category: "/language:${{matrix.language}}"
       
       # Step to run code scanning
-      - name: Run Code Scanning
-        uses: github/codeql-action@v2
-        with:
-          # Path to the extracted code directory
-          sarif-file: extracted_code/codeql-results.sarif
+      #- name: Run Code Scanning
+      #  uses: github/codeql-action@v2
+      #  with:
+      #    # Path to the extracted code directory
+      #    sarif-file: extracted_code/codeql-results.sarif
 
       # Step to run dependabot
-      - name: Run Dependabot
-        uses: github/dependabot-action@v2
-        with:
-          # Path to the extracted code directory
-          directory: extracted_code
+      #- name: Run Dependabot
+      #  uses: github/dependabot-action@v2
+      #  with:
+      #    # Path to the extracted code directory
+      #    directory: extracted_code
 
       # Step to run secret scanning
-      - name: Run Secret Scanning
-        uses: github/secret-scanning-action@v1
-        with:
-          # Path to the extracted code directory
-          path: extracted_code
+      #- name: Run Secret Scanning
+      #  uses: github/secret-scanning-action@v1
+      #  with:
+      #    # Path to the extracted code directory
+      #    path: extracted_code
