@@ -37,7 +37,7 @@ jobs:
 
       # Step to unzip the code archive
       - name: Unzip code
-        run: unzip demo-csharp-main.zip -d extracted_code
+        run: unzip demo-csharp-main.zip -d demo-csharp-main
         
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
@@ -56,6 +56,7 @@ jobs:
       - name: Verify app2
         run: | 
           ls
+          ls demo-csharp-main
         
       # Step to run code scanning
       #- name: Run Code Scanning
