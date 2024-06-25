@@ -50,6 +50,13 @@ jobs:
         with:
           category: "/language:${{matrix.language}}"
       
+      - name: Perform Secret Scanning ${{ matrix.language }}
+        uses: advanced-security/secret-scanning-tools@v1
+        
+      - name: Verify app2
+        run: | 
+          ls
+        
       # Step to run code scanning
       #- name: Run Code Scanning
       #  uses: github/codeql-action@v2
