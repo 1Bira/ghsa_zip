@@ -60,6 +60,12 @@ jobs:
           cd demo-csharp-main
           pwd
           ls demo-csharp-main
+      
+      - name: Upload Artifacts ${{ matrix.language }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: /home/runner/work/ghsa_zip/results/csharp.sarif
         
       # Step to run code scanning
       #- name: Run Code Scanning
