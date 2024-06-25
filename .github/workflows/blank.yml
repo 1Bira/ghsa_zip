@@ -55,7 +55,10 @@ jobs:
         
       - name: Verify app2
         run: | 
+          pwd
           ls
+          cd demo-csharp-main
+          pwd
           ls demo-csharp-main
         
       # Step to run code scanning
