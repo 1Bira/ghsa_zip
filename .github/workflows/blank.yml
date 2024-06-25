@@ -19,7 +19,12 @@ jobs:
       # Step to unzip the code archive
       - name: Unzip code
         run: unzip code.zip -d extracted_code
-
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+          
       # Step to run code scanning
       - name: Run Code Scanning
         uses: github/codeql-action@v2
