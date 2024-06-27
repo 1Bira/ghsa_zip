@@ -38,7 +38,7 @@ jobs:
 
       # Step to unzip the code archive
       - name: Unzip code
-        run: unzip demo-csharp-main.zip -d demo-csharp-main
+        run: unzip *.zip -d demo-csharp-main
         
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
@@ -53,14 +53,6 @@ jobs:
       
       - name: Perform Secret Scanning ${{ matrix.language }}
         uses: advanced-security/secret-scanning-tools@v1
-        
-      - name: Verify app2
-        run: | 
-          pwd
-          ls
-          cd demo-csharp-main
-          pwd
-          ls demo-csharp-main
       
       - name: Upload Artifacts ${{ matrix.language }}
         uses: actions/upload-artifact@v4
